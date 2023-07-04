@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    ::-webkit-scrollbar-thumb{
+    @apply bg-transparent shadow-sm
+    }
+    ::-webkit-scrollbar{
+    @apply w-1 bg-transparent
+    }
+    ::-webkit-scrollbar-thumb{
+    @apply rounded-lg bg-[rgb(52,144,220)] /*color trackbar*/
+    }
+    }
+
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Permanent+Marker&family=Roboto+Mono:ital,wght@0,300;0,400;0,500;1,300;1,500&family=Roboto:wght@400;500;700&display=swap');
+
+#root{
+    font-family: 'Roboto', sans-serif;
+}
