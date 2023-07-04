@@ -8,7 +8,7 @@ import AddMessage from "./Components/AddMessage"
 function App() {
 
   return (
-    <main className="bg-[rgb(37,59,90)] h-full text-[rgb(255,242,243)]">
+    <main className="bg-[rgb(37,59,90)] h-full text-[rgb(255,242,243)] overflow-x-hidden">
       <Routes>
           <Route path="/" element={<Layout/>}>
               <Route index element={<Inbox/>}/>
