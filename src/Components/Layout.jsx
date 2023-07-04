@@ -1,12 +1,38 @@
 import { Link, Outlet } from "react-router-dom"
 import { HiOutlineChat,HiMail,HiMenuAlt3 } from 'react-icons/hi'
 import { FaFacebook } from 'react-icons/fa'  
+import { useEffect, useState } from "react"
 
 
 const Layout = () => {
+
+    const [isNavOn, setIsNavOn] = useState(false)
+
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setScreenWidth(window.innerWidth);
+        };
+    
+        window.addEventListener('resize', handleResize);
+    
+        // Clean up the event listener when the component unmounts
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    useEffect(() => {
+        if(screenWidth >= 589){
+            setIsNavOn(false)
+        }
+        
+    });
+
   return (
-    <div>
-        <nav className=" bg-[rgb(38,55,72)] p-5 drop-shadow-md">
+    <div className="relative">
+        <nav className=" bg-[rgb(38,55,72)] p-5 drop-shadow-md z-10">
             <div className="container mx-auto flex items-center justify-between ">
                     <Link to='/' className="text-2xl font-semibold">
                         Our<span className="text-[rgb(237,162,8)] uppercase">Himitsu</span>
@@ -23,13 +49,29 @@ const Layout = () => {
                     </Link>
                 </div>
                 <div className="max-[589px]:flex hidden  text-xl">
-                    <button className="text-2xl">
+                    <button onClick={()=>{isNavOn ? setIsNavOn(false):setIsNavOn(true)}} className="text-2xl">
                         <HiMenuAlt3/>
                     </button>
                 </div>
             </div>
         </nav>
-            <div className="container mx-auto mt-10 my-10">
+        {/* drop down */}
+        <div className={`bg-[rgb(38,55,72)] max-[589px]:flex hidden p-3 absolute top-[4.5rem] left-0 right-0 transition ease-in-out ${isNavOn ? '':'translate-x-[40rem]'}`}>
+            <div className="container mx-auto flex flex-col items-center justify-between ">
+                <div className="flex flex-col mb-3 items-center gap-4 text-xl">
+                    <Link to='/' onClick={()=>{setIsNavOn(false)}}>Inbox</Link>
+                    <Link to='/about' onClick={()=>{setIsNavOn(false)}}>About</Link>
+                    <Link to='/contact' onClick={()=>{setIsNavOn(false)}}>Contact</Link>
+                </div>
+                <div className="flex text-xl">
+                    <Link to='/create' className="flex items-center gap-1 bg-[rgb(237,162,8)] p-2 rounded-lg drop-shadow-md" onClick={()=>{setIsNavOn(false)}}>
+                        <span><HiOutlineChat/></span>
+                        Post a Secret
+                    </Link>
+                </div>
+            </div>
+        </div>
+            <div className={`container mx-auto mt-10 my-10 transition ease-in-out ${isNavOn ? 'pt-[10rem]':''}`}>
                 <Outlet/>
             </div>
         <footer className="bg-[rgb(38,55,72)] py-10 max-[680px]:px-5 max-[680px]:text-center text-slate-300">
