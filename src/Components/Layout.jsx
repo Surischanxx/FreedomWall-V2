@@ -59,9 +59,9 @@ const Layout = () => {
         <div className={`bg-[rgb(38,55,72)] max-[589px]:flex hidden p-3 absolute top-[4.5rem] left-0 right-0 transition ease-in-out ${isNavOn ? '':'translate-x-[40rem]'}`}>
             <div className="container mx-auto flex flex-col items-center justify-between ">
                 <div className="flex flex-col mb-3 items-center gap-4 text-xl">
-                    <Link to='/' onClick={()=>{setIsNavOn(false)}}>Inbox</Link>
-                    <Link to='/about' onClick={()=>{setIsNavOn(false)}}>About</Link>
-                    <Link to='/contact' onClick={()=>{setIsNavOn(false)}}>Contact</Link>
+                    <Link to='/' onClick={()=>{setIsNavOn(false)}} className={location.pathname === '/' ? 'text-[rgb(237,162,8)]':''}>Inbox</Link>
+                    <Link to='/about' onClick={()=>{setIsNavOn(false)}} className={location.pathname === '/about' ? 'text-[rgb(237,162,8)]':''}>About</Link>
+                    <Link to='/contact' onClick={()=>{setIsNavOn(false)}} className={location.pathname === '/contact' ? 'text-[rgb(237,162,8)]':''}>Contact</Link>
                 </div>
                 <div className="flex text-xl">
                     <Link to='/create' className="flex items-center gap-1 bg-[rgb(237,162,8)] p-2 rounded-lg drop-shadow-md" onClick={()=>{setIsNavOn(false)}}>
