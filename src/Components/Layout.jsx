@@ -78,7 +78,7 @@ const Layout = () => {
             <div className="container mx-auto flex max-[680px]:flex-col flex-row gap-5 items-center justify-between flex-wrap">
                 <div className="max-[680px]:w-full w-1/2">
                     <p>
-                        Welcome to <span className="font-semibold">OUR<span className="text-[rgb(237,162,8)]">HIMITSU</span></span>, our online freedom wall! As an essential component of our Student Support Group (SSG) platform, OURHIMITSU provides a digital space where individuals can freely share their secrets, thoughts, and experiences. 
+                        Welcome to <span className="font-semibold">OUR<span className="text-[rgb(237,162,8)]">HIMITSU</span></span>, our online freedom wall! As an essential component of our Supreme Student Government (SSG) platform, OURHIMITSU provides a digital space where individuals can freely share their secrets, thoughts, and experiences. 
                     </p>
                 </div>
                 <div className="flex flex-col items-center flex-1">

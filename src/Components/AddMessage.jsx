@@ -100,7 +100,7 @@ const AddMessage = () => {
             </div>
             <div className='w-full flex flex-col items-center justify-center'>
                 <h1 className='text-lg'>Theme</h1>
-                <input type='color' onChange={(e)=>{setTheme(e.target.value)}} className='w-full outline-none cursor-pointer'/>
+                <input type='color' onChange={(e)=>{setTheme(e.target.value)}} className='w-full outline-none cursor-pointer rounded-lg'/>
             </div>
             <div className='w-full flex flex-col items-center justify-center mt-5'>
                 <h1 className='text-lg'>How are you feeling?</h1>
