@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom"
+import { Link, Outlet, useLocation } from "react-router-dom"
 import { HiOutlineChat,HiMail,HiMenuAlt3 } from 'react-icons/hi'
 import { FaFacebook } from 'react-icons/fa'  
 import { useEffect, useState } from "react"
@@ -7,7 +7,7 @@ import { useEffect, useState } from "react"
 const Layout = () => {
 
     const [isNavOn, setIsNavOn] = useState(false)
-
+    const location = useLocation()
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
     useEffect(() => {
@@ -38,9 +38,9 @@ const Layout = () => {
                         Our<span className="text-[rgb(237,162,8)] uppercase">Himitsu</span>
                     </Link>
                 <div className="max-[589px]:hidden flex items-center gap-4 text-xl">
-                    <Link to='/'>Inbox</Link>
-                    <Link to='/about'>About</Link>
-                    <Link to='/contact'>Contact</Link>
+                    <Link to='/' className={location.pathname === '/' ? 'text-[rgb(237,162,8)]':''}>Inbox</Link>
+                    <Link to='/about' className={location.pathname === '/about' ? 'text-[rgb(237,162,8)]':''}>About</Link>
+                    <Link to='/contact' className={location.pathname === '/contact' ? 'text-[rgb(237,162,8)]':''}>Contact</Link>
                 </div>
                 <div className="max-[589px]:hidden flex text-xl">
                     <Link to='/create' className="flex items-center gap-1 bg-[rgb(237,162,8)] p-2 rounded-lg drop-shadow-md">
