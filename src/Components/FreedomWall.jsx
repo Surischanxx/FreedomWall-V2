@@ -109,7 +109,7 @@ const FreedomWall = (props) => {
                   {item.message}
                 </p>
                 <p className="text-[10px]">
-                  {item.seen != undefined ? item.seen? 'Seen':'Sent':''}
+                  {item.seen != undefined ? item.seen ? 'Seen':'Sent':'Sent'}
                 </p>
               </span>
           </div>
