@@ -6,7 +6,7 @@ import { Comments } from "../Data/Comments"
 import PropTypes from 'prop-types';
 
 const Inbox = (props) => {
-  const comments = Comments();
+  const {comments} = Comments();
 
 
   return (
@@ -36,7 +36,7 @@ const Inbox = (props) => {
               </div>
           </div>
           <div className="flex flex-col items-center mt-10">
-              <p className="flex items-center text-xl gap-1 text-[rgb(237,162,8)]">
+              <p className="flex items-center text-center justify-center text-xl gap-1 text-[rgb(237,162,8)] flex-wrap">
                 <span><VscGistSecret/></span>
                 <span>{comments.length}</span>
                 Secret Messages Found

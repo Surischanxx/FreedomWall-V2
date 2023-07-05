@@ -2,7 +2,7 @@ import logo from '/src/assets/OurHIMITSU-removebg-preview.png'
 
 const About = () => {
   return (
-    <div className='h-full max-[742px]:px-5 flex items-center justify-center'>
+    <div className='container mx-auto py-5 h-full max-[742px]:px-5 flex items-center justify-center'>
       <div className='flex flex-wrap items-center'>
         <div className='flex-1'>
             <div>

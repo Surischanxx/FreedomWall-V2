@@ -31,8 +31,8 @@ const Layout = () => {
     });
 
   return (
-    <div className="relative">
-        <nav className=" bg-[rgb(38,55,72)] p-5 drop-shadow-md z-10">
+    <div className="relative flex flex-col justify-between h-screen overflow-y-auto overflow-x-hidden">
+        <nav className=" bg-[rgb(38,55,72)] p-5 drop-shadow-md z-10 h-[5rem]">
             <div className="container mx-auto flex items-center justify-between ">
                     <Link to='/' className="text-2xl font-semibold">
                         Our<span className="text-[rgb(237,162,8)] uppercase">Himitsu</span>
@@ -71,7 +71,7 @@ const Layout = () => {
                 </div>
             </div>
         </div>
-            <div className={`container mx-auto mt-10 my-10 transition ease-in-out ${isNavOn ? 'pt-[10rem]':''}`}>
+            <div className={`container mx-auto mt-10 my-10 transition ease-in-out ${isNavOn ? 'pt-[10rem]':''} `}>
                 <Outlet/>
             </div>
         <footer className="bg-[rgb(38,55,72)] py-10 max-[680px]:px-5 max-[680px]:text-center text-slate-300">

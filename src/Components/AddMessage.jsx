@@ -19,27 +19,6 @@ const AddMessage = () => {
     const [theme, setTheme] = useState('#000000')
     const [emoji, setEmoji] = useState('happy')
 
-    // const generateDate =()=>{
-    //     // Define the month names
-    //     let monthNames = [
-    //         'January', 'February', 'March', 'April', 'May', 'June', 'July',
-    //         'August', 'September', 'October', 'November', 'December'
-    //     ];
-        
-    //     // Create a new Date object for the current date
-    //     let currentDate = new Date();
-        
-    //     // Get the month, day, and year
-    //     let month = monthNames[currentDate.getMonth()];
-    //     let day = currentDate.getDate();
-    //     let year = currentDate.getFullYear();
-        
-    //     // Format the date string
-    //     let formattedDate = month + ' ' + day + ', ' + year;
-
-    //     return formattedDate
-    // }
-
     const postMessage =async(e)=>{
         e.preventDefault()
 
@@ -52,8 +31,8 @@ const AddMessage = () => {
                         to:name,
                         message:message,
                         theme:theme,
-                        emoji:emoji
-                        // datePosted:generateDate()
+                        emoji:emoji,
+                        seen:false
                     })
 
                     const Toast = Swal.mixin({
@@ -76,6 +55,13 @@ const AddMessage = () => {
             } catch (error) {
                 console.log(error)
             }
+        }else{
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!',
+                confirmButtonColor:'rgb(237,162,8)'
+            })
         }
     }
 
