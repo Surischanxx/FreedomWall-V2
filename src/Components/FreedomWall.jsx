@@ -92,7 +92,7 @@ const FreedomWall = (props) => {
                   {item.to.slice(0,1).toUpperCase()}
                 </p>
             </span>
-            <span>
+            <span className="flex flex-col items-start">
                 <p className="text-2xl">{item.to}</p>
                 <p className="text-[12px]">
                   {getTimeDifference(item.createdAt) === 'Just now' ? '':'Active'} <span>{getTimeDifference(item.createdAt)}</span>
@@ -102,10 +102,13 @@ const FreedomWall = (props) => {
 
           <div className="p-3 h-[15rem] w-full overflow-y-auto flex flex-col">
               <span className="flex flex-col items-end justify-end h-[15rem] mt-[2rem] text-left">
+                <p className="text-[13px] me-2">
+                  {item.from ? item.from:'unknown'}
+                </p>
                 <p className={`${item.theme === '#ffffff' ? 'text-black':'text-white'} p-3 max-w-full break-words rounded-lg`} style={{background:item.theme}}>
                   {item.message}
                 </p>
-                <p className="text-[11px]">
+                <p className="text-[10px]">
                   {item.seen != undefined ? item.seen? 'Seen':'Sent':''}
                 </p>
               </span>

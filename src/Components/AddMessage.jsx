@@ -15,6 +15,7 @@ import { useNavigate } from 'react-router-dom'
 const AddMessage = () => {
     const navigate = useNavigate()
     const [name, setName] = useState('')
+    const [from, setFrom] = useState('')
     const [message, setMessage] = useState('')
     const [theme, setTheme] = useState('#000000')
     const [emoji, setEmoji] = useState('happy')
@@ -29,6 +30,7 @@ const AddMessage = () => {
 
                     await axios.post(`${url}/api/comment`,{
                         to:name,
+                        from:from,
                         message:message,
                         theme:theme,
                         emoji:emoji,
@@ -81,7 +83,10 @@ const AddMessage = () => {
             </div>
             <div className='flex flex-col mt-5'>
                 <label htmlFor='name'>To:</label>
-                <input type='text' value={name} onChange={(e)=>{setName(e.target.value)}} className='rounded-md p-2 outline-none text-black text-lg' name='name' placeholder='Example: Ziza' required/>
+                <input type='text' value={name} onChange={(e)=>{setName(e.target.value)}} className='rounded-md p-2 outline-none text-black text-lg' name='name' placeholder='Example: Ziza'/>
+                
+                <label htmlFor='name' className='mt-5'>From:</label>
+                <input type='text' value={from} onChange={(e)=>{setFrom(e.target.value)}} className='rounded-md p-2 outline-none text-black text-lg' name='name' placeholder='Optional' required/>
 
                 <label htmlFor='message' value={message} className='mt-5 text-lg'>Message:</label>
                 <textarea type='text' onChange={(e)=>{setMessage(e.target.value)}} className='rounded-md p-2 max-h-72 min-h-[5rem] outline-none text-black' name='message' placeholder='Type here your message or secret' required></textarea>
