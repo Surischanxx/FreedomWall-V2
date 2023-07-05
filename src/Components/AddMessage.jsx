@@ -19,6 +19,7 @@ const AddMessage = () => {
     const [message, setMessage] = useState('')
     const [theme, setTheme] = useState('#000000')
     const [emoji, setEmoji] = useState('happy')
+    const [messageLength, setMessageLength] = useState(0)
 
     const postMessage =async(e)=>{
         e.preventDefault()
@@ -72,6 +73,11 @@ const AddMessage = () => {
         setEmoji(e.target.id)
     }
 
+    const messageConfig =(e)=>{
+        setMessageLength(e.target.value.length)
+        setMessage(e.target.value)
+    }
+
   return (
     <div className='h-full flex items-center justify-center'>
         <form className='flex flex-col bg-[rgb(38,55,72)] p-5 drop-shadow-md rounded-md max-[541px]:w-full w-[30rem]'>
@@ -89,8 +95,8 @@ const AddMessage = () => {
                 <input type='text' value={from} onChange={(e)=>{setFrom(e.target.value)}} className='rounded-md p-2 outline-none text-black text-lg' name='name' placeholder='Optional' required/>
 
                 <label htmlFor='message' value={message} className='mt-5 text-lg'>Message:</label>
-                <textarea type='text' onChange={(e)=>{setMessage(e.target.value)}} className='rounded-md p-2 max-h-72 min-h-[5rem] outline-none text-black' name='message' placeholder='Type here your message or secret' required></textarea>
-                <p className='w-full text-end'>0/100</p>
+                <textarea type='text' maxLength='100' onChange={(e)=>{messageConfig(e)}} className='rounded-md p-2 max-h-72 min-h-[5rem] outline-none text-black' name='message' placeholder='Type here your message or secret' required></textarea>
+                <p className='w-full text-end'><span>{messageLength}</span>/100</p>
             </div>
             <div className='w-full flex flex-col items-center justify-center'>
                 <h1 className='text-lg'>Theme</h1>
